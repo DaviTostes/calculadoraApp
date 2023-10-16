@@ -2,15 +2,30 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import Keyboard from "./source/components/Keyboard";
 import Display from './source/components/Display';
+import { useState } from 'react';
+import math from 'mathjs';
 
 export default function App() {
+  let [expression, setExpression] = useState("")
+  let [result, setResult] = useState()
+
+  function handleExpression(value) {
+    setExpression([...expression, value].join(""))
+  }
+
+  function calculate() {
+    console.log(expression)
+    console.log(math.evaluate("2+2"))
+    setResult(result)
+  }
+
   return (
     <View style={styles.container}>
-        <Display expression= "12-9/2" result="3"/>
+        <Display expression={expression} result={result} />
 
         <View style={styles.separator}/>
 
-        <Keyboard/>
+        <Keyboard onSendExpression={handleExpression} evaluate={calculate}/>
       <StatusBar style="auto" />
     </View>
 
