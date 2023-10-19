@@ -1,8 +1,8 @@
 import { View, Text } from "react-native";
 import styles from "./styles";
+import { useEffect, useState } from "react";
 
 export default function Display({expression, result}){
- 
 
     return(
         <View style={styles.container}>
