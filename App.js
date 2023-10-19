@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Keyboard from "./source/components/Keyboard";
 import Display from './source/components/Display';
-import { useState } from 'react';
+
 import math from 'mathjs';
 
 export default function App() {
