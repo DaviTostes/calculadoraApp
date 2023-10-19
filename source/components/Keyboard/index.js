@@ -1,56 +1,71 @@
-import { TouchableOpacity, View, Text } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import {MaterialCommunityIcons} from  "react-native-vector-icons";
+import math from "mathjs";
 
+import buttons from "./buttons";
 import Button from "../Button";
 import styles from "./styles";
 
+export default function Keyboard(props){
+    
+    const math= require('mathjs')
 
-export default function Keyboard(){
+    function analyzeExpression(char){
+        
+        
+    }
+
+    function updateExpression(char){
+        //if(analyzeExpression(char))return;
+        props.setExpression(props.expression + char);
+        props.setResult("");
+    }
+    function erase(){
+        props.setExpression(props.expression.slice(0, -1));
+    }
+
+    function clear(){
+        props.setExpression("");
+    }
+
+    function calculate(){
+        
+        const resultado= math.evaluate(props.expression);
+        props.setResult(resultado);
+        clear();
+
+    }
+
+
+
     return(
         <View style={styles.container}>
         
             <View style={styles.erase}>
-                <TouchableOpacity onPress={()=> console.log('daviGay')}>
+                <TouchableOpacity onPress={erase} onLongPress={clear} delayLongPress={500}>
                     <MaterialCommunityIcons name="backspace" size={34} color="red"/>
                 </TouchableOpacity>
             </View>
-        
-            <View style={styles.line}>
-                <Button label="c" color= "#00d315" />
-                <Button label="()" color= "#00d315" />
-                <Button label="%" color= "#00d315" />
-                <Button label= {<MaterialCommunityIcons name="division" 
-                    style={styles.icon}/>} color= "#00d315" />
-            </View>
 
-            <View style={styles.line}>
-                <Button label="7"/>
-                <Button label="8"/>
-                <Button label="9"/>
-                <Button label="x" color= "#00d315"/>
-            </View>
+            <View style={styles.buttons}>
+                {buttons.map((button, index) =>{
+                    if(button.value === "^"){
+                        button.label = <MaterialCommunityIcons
+                         name="exponent"
+                        size={34}/>
+                    }
+                    
 
-            <View style={styles.line}>
-                <Button label="4"/>
-                <Button label="5"/>
-                <Button label="6"/>
-                <Button label="-" color= "#00d315" />
-            </View>
-
-            <View style={styles.line}>
-                <Button label="1"/>
-                <Button label="2"/>
-                <Button label="3"/>
-                <Button label="+" color= "#00d315"/>
-            </View>
-
-            <View style={styles.line}>
-                <Button label="+/-"/ >
-                <Button label="0"/>
-                <Button label=","/>
-                <Button label="=" color= "#00d315"/>
-                
+                    return(
+                        <Button
+                            key={index}
+                            label={button.label} 
+                            color={button.color} 
+                            onPress={()=>button.value!= "="?updateExpression(button.value):calculate() }
+                        />
+                    );
+                })}
             </View>
         </View>
-    )
+    );
 }

@@ -1,16 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Keyboard from "./source/components/Keyboard";
 import Display from './source/components/Display';
 
 export default function App() {
+  const [expression, setExpression] = useState("");
+  const [result, setResult] = useState("");
+
+  
   return (
     <View style={styles.container}>
-        <Display expression= "12-9/2" result="3"/>
+        <Display expression= {expression} result={result}/>
 
         <View style={styles.separator}/>
 
-        <Keyboard/>
+        <Keyboard
+          expression= {expression} 
+          setExpression= {setExpression}
+          result={result}
+          setResult={setResult}
+        />
       <StatusBar style="auto" />
     </View>
 
