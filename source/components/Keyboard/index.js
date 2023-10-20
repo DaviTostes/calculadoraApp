@@ -8,15 +8,19 @@ import styles from "./styles";
 
 export default function Keyboard(props){
     
+    const operations = ["+", "-", "*", "/"];
+
+    
     const math= require('mathjs')
 
-    function analyzeExpression(char){
-        
-        
+    function invalidExpression(char){
+        if(operations.includes(props.expression[props.expression.length - 1])&&
+            operations.includes(char))return true;
+   
     }
 
     function updateExpression(char){
-        //if(analyzeExpression(char))return;
+        if(invalidExpression(char))return;
         props.setExpression(props.expression + char);
         props.setResult("");
     }
@@ -30,10 +34,15 @@ export default function Keyboard(props){
 
     function calculate(){
         
-        const resultado= math.evaluate(props.expression);
-        props.setResult(resultado);
-        clear();
-
+        try{
+            const resultado= math.evaluate(props.expression);
+            props.setResult(resultado);
+            clear();
+        }catch(error)
+        {
+            props.setResult("Invalid Expression");
+            clear();
+        }
     }
 
 
