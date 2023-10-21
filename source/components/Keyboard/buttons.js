@@ -1,26 +1,22 @@
-import {MaterialCommunityIcons} from  "react-native-vector-icons";
-import styles from "./styles";
-    export default  buttons =([
-    {label: "(", color: "#00d315", value:'('},
-    {label: ")", color: "#00d315", value:')'},
-    {label: "%", color: "#00d315", value:'%'},
-    {label: <MaterialCommunityIcons name="division"
-        style={styles.icon}/>, color: "#00d315", value:'/'},
-    {label: "7", color: "#fff", value:'7'},
-    {label: "8", color: "#fff", value:'8'},
-    {label: "9", color: "#fff", value:'9'},
-    {label: "x", color: "#00d315", value:'*'},
-    {label: "4", color: "#fff", value:'4'},
-    {label: "5", color: "#fff", value:'5'},
-    {label: "6", color: "#fff", value:'6'},
-    {label: "-", color: "#00d315", value:'-'},
-    {label: "1", color: "#fff", value:'1' },
-    {label: "2", color: "#fff", value:'2'},
-    {label: "3", color: "#fff", value:'3'},
-    {label: "+", color: "#00d315", value:'+'},
-    { label: "x^", color: "#00d315", value:'^'},
-    {label: "0", color: "#fff", value:'0'},
-    {label: ",", color: "#fff", value:'.'},
-    {label: "=", color: "#00d315", value:'='},
-    ]);
-
+export default buttons = [
+  { label: '(', color: '#00d315', value: '(', fontWeight: 'bold' },
+  { label: ')', color: '#00d315', value: ')', fontWeight: 'bold' },
+  { label: '%', color: '#00d315', value: '%', fontWeight: 'bold' },
+  { label: '÷', color: '#00d315', value: '/', fontWeight: 'bold' },
+  { label: '7', color: '#fff', value: '7', fontWeight: '400' },
+  { label: '8', color: '#fff', value: '8', fontWeight: '400' },
+  { label: '9', color: '#fff', value: '9', fontWeight: '400' },
+  { label: 'x', color: '#00d315', value: '*', fontWeight: 'bold' },
+  { label: '4', color: '#fff', value: '4', fontWeight: '400' },
+  { label: '5', color: '#fff', value: '5', fontWeight: '400' },
+  { label: '6', color: '#fff', value: '6', fontWeight: '400' },
+  { label: '-', color: '#00d315', value: '-', fontWeight: 'bold' },
+  { label: '1', color: '#fff', value: '1', fontWeight: '400' },
+  { label: '2', color: '#fff', value: '2', fontWeight: '400' },
+  { label: '3', color: '#fff', value: '3', fontWeight: '400' },
+  { label: '+', color: '#00d315', value: '+', fontWeight: 'bold' },
+  { label: 'xⁿ', color: '#00d315', value: '^', fontWeight: 'bold' },
+  { label: '0', color: '#fff', value: '0', fontWeight: '400' },
+  { label: ',', color: '#fff', value: '.', tipo: 'point', fontWeight: '400' },
+  { label: '=', color: '#00d315', value: '=', fontWeight: 'bold' }
+]

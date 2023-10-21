@@ -1,23 +1,20 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-    Button: {
-        with:70,
-        height: 70,
-        margin: 8,
-        backgroundColor: "#363535",
-        borderRadius: 50,
-        padding: 10,
-    },
-
-    ButtonText: {
-        width: 45,
-        height: 45,
-        textAlign: "center",
-        fontSize: 32,
-        fontWeight: "bold",
-
-    },
-    
-
-});
+  Button: {
+    width: 75,
+    height: 75,
+    margin: 8,
+    backgroundColor: '#363535',
+    borderRadius: 50,
+    padding: 10
+  },
+  ButtonText: {
+    width: 55,
+    height: 55,
+    fontSize: 32,
+    flex: 1,
+    textAlignVertical: 'center',
+    textAlign: 'center'
+  }
+})
